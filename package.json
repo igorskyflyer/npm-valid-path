@@ -1,0 +1,42 @@
+{
+	"name": "@igor.dvlpr/valid-path",
+	"version": "1.0.0",
+	"description": "🧰 Provides ways of testing whether a given value can be a valid file/directory name. 🏜",
+	"main": "main.js",
+	"files": [
+		"main.js",
+		"dist"
+	],
+	"types": "./dist/main.d.ts",
+	"scripts": {
+		"test": "mocha",
+		"pub": "npm test && tsc && npm publish --access public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/igorskyflyer/npm-valid-path.git"
+	},
+	"keywords": [
+		"path",
+		"valid",
+		"filesystem",
+		"identifier",
+		"os",
+		"igor.dvlpr"
+	],
+	"author": "Igor Dimitrijević",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/igorskyflyer/npm-valid-path/issues"
+	},
+	"homepage": "https://github.com/igorskyflyer/npm-valid-path#readme",
+	"devDependencies": {
+		"@types/node": "^16.3.3",
+		"chai": "^4.3.4",
+		"mocha": "^9.0.2"
+	},
+	"dependencies": {
+		"@igor.dvlpr/chars-in-string": "^1.1.2",
+		"@igor.dvlpr/upath": "^1.2.1"
+	}
+}

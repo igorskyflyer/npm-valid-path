@@ -1,0 +1,18 @@
+{
+	"include": [
+		"./*.js"
+	],
+	"compilerOptions": {
+		"target": "ES5",
+		"allowJs": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": "dist",
+		"alwaysStrict": true,
+		"checkJs": true,
+		"listEmittedFiles": true,
+		"noUnusedParameters": true,
+		"noUnusedLocals": true,
+		"pretty": true,
+	}
+}

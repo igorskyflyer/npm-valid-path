@@ -1,6 +1,6 @@
 {
 	"name": "@igor.dvlpr/valid-path",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "🧰 Provides ways of testing whether a given value can be a valid file/directory name. 🏜",
 	"main": "main.js",
 	"files": [

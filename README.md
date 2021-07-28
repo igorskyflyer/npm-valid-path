@@ -51,7 +51,9 @@ console.log(isValidPathUnix('hello/world')) // prints true
 
 console.log(isValidPathWin('hello/world.js', true)) // prints false
 console.log(isValidPathWin('hello/world', false)) // prints false
-console.log(isValidPathWin('CON7')) // prints false
+console.log(isValidPathWin('CON7')) // prints true
+console.log(isValidPathWin('COM7.txt')) // prints false
+console.log(isValidPathWin('CONnection')) // prints true
 console.log(isValidPathWin('lpt1')) // prints false
 console.log(isValidPathWin('hello&world.js', true)) // prints true
 

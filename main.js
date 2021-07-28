@@ -51,7 +51,7 @@ function validPath(path, notAllowedChars, maxPath, isFile = true, separator = sl
  */
 function isValidPathWin(path, isFile = true) {
   const isDevice = strIsIn(path, winDevices, (entry, value) => {
-    return new RegExp(`^\s*${entry}(?:\\.{1}[^\\.]{0,}){0,1}$`, 'i').test(value)
+    return new RegExp(`^\\s*${entry}\\s*(?:\\.{1}[^\\.]{0,}){0,}\\s*$`, 'i').test(value)
   })
 
   return !isDevice && validPath(path, winNotAllowed, winMaxPath, isFile, '\\')

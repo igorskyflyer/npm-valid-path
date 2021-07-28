@@ -1,5 +1,6 @@
 const { platform } = require('os')
-const { stringsInString, Position, charsInString } = require('@igor.dvlpr/chars-in-string')
+const { charsInString } = require('@igor.dvlpr/chars-in-string')
+const { strIsIn } = require('@igor.dvlpr/str-is-in')
 const { slash } = require('@igor.dvlpr/upath')
 
 const isWindows = platform() === 'win32'
@@ -49,7 +50,11 @@ function validPath(path, notAllowedChars, maxPath, isFile = true, separator = sl
  * @returns {boolean}
  */
 function isValidPathWin(path, isFile = true) {
-  return !stringsInString(winDevices, path, Position.Start, false) && validPath(path, winNotAllowed, winMaxPath, isFile, '\\')
+  const isDevice = strIsIn(path, winDevices, (entry, value) => {
+    return new RegExp(`^${entry}(?:\\.{1}[^\\.]+){0,1}$`, 'i').test(value)
+  })
+
+  return !isDevice && validPath(path, winNotAllowed, winMaxPath, isFile, '\\')
 }
 
 /**

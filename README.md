@@ -47,7 +47,7 @@ const { isValidPathUnix, isValidPathWin, isValidPath } = require('@igor.dvlpr/va
 
 console.log(isValidPathUnix('hello&world.js', true)) // prints true
 console.log(isValidPathUnix('hello/world.js', true)) // prints false
-console.log(isValidPathUnix('hello/world')) // prints true
+console.log(isValidPathUnix('hello/world')) // prints false
 
 console.log(isValidPathWin('hello/world.js', true)) // prints false
 console.log(isValidPathWin('hello/world', false)) // prints false

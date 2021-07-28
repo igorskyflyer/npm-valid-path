@@ -46,11 +46,23 @@ describe('🧪 isValidPath tests 🧪', () => {
     })
 
     it('should return false', () => {
-      chai.isFalse(isValidPathWin('CON7'))
+      chai.isFalse(isValidPathWin('COM7'))
+    })
+
+    it('should return true', () => {
+      chai.isTrue(isValidPathWin('CON7'))
     })
 
     it('should return false', () => {
       chai.isFalse(isValidPathWin('lpt1'))
+    })
+
+    it('should return true', () => {
+      chai.isTrue(isValidPathWin('connection'))
+    })
+
+    it('should return false', () => {
+      chai.isFalse(isValidPathWin('lpt1.txt'))
     })
 
     it('should return false', () => {

@@ -1,14 +1,12 @@
 const { platform } = require('os')
 const { charsInString } = require('@igor.dvlpr/chars-in-string')
-const { strIsIn } = require('@igor.dvlpr/str-is-in')
 const { slash } = require('@igor.dvlpr/upath')
+const { isWindowsDevice } = require('@igor.dvlpr/windev')
 
 const isWindows = platform() === 'win32'
 const winMaxPath = 260
 // Windows doesn't allow these characters to appear in the path
 const winNotAllowed = ['/', ':', '*', '?', '"', '<', '>', '|']
-// prettier-ignore
-const winDevices = [ 'CON',  'PRN',  'AUX',  'NUL',  'COM1',  'COM2',  'COM3',  'COM4',  'COM5',  'COM6',  'COM7',  'COM8',  'COM9',  'LPT1',  'LPT2',  'LPT3',  'LPT4',  'LPT5',  'LPT6',  'LPT7',  'LPT8',  'LPT9' ]
 
 const unixMaxPath = 255
 // Unix systems don't allow \0 (and a forward slash if it's a file name) as a part of the path
@@ -50,11 +48,7 @@ function validPath(path, notAllowedChars, maxPath, isFile = true, separator = sl
  * @returns {boolean}
  */
 function isValidPathWin(path, isFile = true) {
-  const isDevice = strIsIn(path, winDevices, (entry, value) => {
-    return new RegExp(`^\\s*${entry}\\s*(?:\\.{1}[^\\.]{0,}){0,}\\s*$`, 'i').test(value)
-  })
-
-  return !isDevice && validPath(path, winNotAllowed, winMaxPath, isFile, '\\')
+  return !isWindowsDevice(path) && validPath(path, winNotAllowed, winMaxPath, isFile, '\\')
 }
 
 /**

@@ -1,6 +1,6 @@
 {
 	"name": "@igor.dvlpr/valid-path",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "🧰 Provides ways of testing whether a given value can be a valid file/directory name. 🏜",
 	"main": "main.js",
 	"files": [
@@ -37,7 +37,7 @@
 	},
 	"dependencies": {
 		"@igor.dvlpr/chars-in-string": "^1.1.2",
-		"@igor.dvlpr/str-is-in": "^1.1.0",
-		"@igor.dvlpr/upath": "^1.2.1"
+		"@igor.dvlpr/upath": "^1.2.1",
+		"@igor.dvlpr/windev": "^1.0.0"
 	}
 }

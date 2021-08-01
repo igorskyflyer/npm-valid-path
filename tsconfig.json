@@ -1,18 +1,17 @@
 {
-	"include": [
-		"./*.js"
-	],
 	"compilerOptions": {
-		"target": "ES5",
 		"allowJs": true,
+		"checkJs": true, // disable this if you don't want JS type-checking
 		"declaration": true,
 		"emitDeclarationOnly": true,
-		"outDir": "dist",
-		"alwaysStrict": true,
-		"checkJs": true,
-		"listEmittedFiles": true,
-		"noUnusedParameters": true,
-		"noUnusedLocals": true,
-		"pretty": true,
-	}
+		"declarationDir": "dist/types",
+		"skipLibCheck": true
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"**/*.spec.ts"
+	]
 }

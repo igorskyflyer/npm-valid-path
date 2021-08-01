@@ -3,15 +3,6 @@ import { charsInString } from '@igor.dvlpr/chars-in-string'
 import { slash } from '@igor.dvlpr/upath'
 import { isWindowsDevice } from '@igor.dvlpr/windev'
 
-const isWindows = platform() === 'win32'
-const winMaxPath = 260
-// Windows doesn't allow these characters to appear in the path
-const winNotAllowed = ['/', ':', '*', '?', '"', '<', '>', '|']
-
-const unixMaxPath = 255
-// Unix systems don't allow \0 (and a forward slash if it's a file name) as a part of the path
-const unixNotAllowed = []
-
 /**
  * @private
  * @param {string} path
@@ -48,6 +39,10 @@ function validPath(path, notAllowedChars, maxPath, isFile = true, separator = sl
  * @returns {boolean}
  */
 export function isValidPathWin(path, isFile = true) {
+  const winMaxPath = 260
+  // Windows doesn't allow these characters to appear in the path
+  const winNotAllowed = ['/', ':', '*', '?', '"', '<', '>', '|']
+
   return !isWindowsDevice(path) && validPath(path, winNotAllowed, winMaxPath, isFile, '\\')
 }
 
@@ -58,6 +53,10 @@ export function isValidPathWin(path, isFile = true) {
  * @returns {boolean}
  */
 export function isValidPathUnix(path, isFile = true) {
+  const unixMaxPath = 255
+  // Unix systems don't allow \0 (and a forward slash if it's a file name) as a part of the path
+  const unixNotAllowed = []
+
   return validPath(path, unixNotAllowed, unixMaxPath, isFile, '/')
 }
 
@@ -68,7 +67,7 @@ export function isValidPathUnix(path, isFile = true) {
  * @returns {boolean}
  */
 export function isValidPath(path, isFile = true) {
-  if (isWindows) {
+  if (platform() === 'win32') {
     return isValidPathWin(path, isFile)
   } else {
     return isValidPathUnix(path, isFile)

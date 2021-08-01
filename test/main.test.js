@@ -1,5 +1,5 @@
-const chai = require('chai').assert
-const { isValidPathUnix, isValidPathWin } = require('../main')
+import { assert as chai } from 'chai'
+import { isValidPathUnix, isValidPathWin } from '../src/main.js'
 
 describe('🧪 isValidPath tests 🧪', () => {
   describe('isValidPathUnix()', () => {

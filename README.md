@@ -4,6 +4,14 @@
 
 <br>
 
+> 💃 Since `v.1.1.0` this package provides both a CommonJS module and an ES module, thanks to [`Modern Module`](https://github.com/igorskyflyer/npm-modern-module).
+>
+> What do you need to do to use one or the other?
+>
+> Nothing. If you need a CommonJS module `require` it, if you need an ES module `import` it instead. Simple, right?
+
+<br>
+
 ### Usage
 
 Install it by running,

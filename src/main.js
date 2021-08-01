@@ -1,7 +1,7 @@
-const { platform } = require('os')
-const { charsInString } = require('@igor.dvlpr/chars-in-string')
-const { slash } = require('@igor.dvlpr/upath')
-const { isWindowsDevice } = require('@igor.dvlpr/windev')
+import { platform } from 'os'
+import { charsInString } from '@igor.dvlpr/chars-in-string'
+import { slash } from '@igor.dvlpr/upath'
+import { isWindowsDevice } from '@igor.dvlpr/windev'
 
 const isWindows = platform() === 'win32'
 const winMaxPath = 260
@@ -47,7 +47,7 @@ function validPath(path, notAllowedChars, maxPath, isFile = true, separator = sl
  * @param {boolean} [isFile=true]
  * @returns {boolean}
  */
-function isValidPathWin(path, isFile = true) {
+export function isValidPathWin(path, isFile = true) {
   return !isWindowsDevice(path) && validPath(path, winNotAllowed, winMaxPath, isFile, '\\')
 }
 
@@ -57,7 +57,7 @@ function isValidPathWin(path, isFile = true) {
  * @param {boolean} [isFile=true]
  * @returns {boolean}
  */
-function isValidPathUnix(path, isFile = true) {
+export function isValidPathUnix(path, isFile = true) {
   return validPath(path, unixNotAllowed, unixMaxPath, isFile, '/')
 }
 
@@ -67,16 +67,10 @@ function isValidPathUnix(path, isFile = true) {
  * @param {boolean} [isFile=true]
  * @returns {boolean}
  */
-function isValidPath(path, isFile = true) {
+export function isValidPath(path, isFile = true) {
   if (isWindows) {
     return isValidPathWin(path, isFile)
   } else {
     return isValidPathUnix(path, isFile)
   }
-}
-
-module.exports = {
-  isValidPath,
-  isValidPathUnix,
-  isValidPathWin,
 }

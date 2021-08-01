@@ -1,16 +1,25 @@
 {
 	"name": "@igor.dvlpr/valid-path",
-	"version": "1.0.4",
+	"version": "1.1.1",
 	"description": "🧰 Provides ways of testing whether a given value can be a valid file/directory name. 🏜",
-	"main": "main.js",
+	"type": "module",
+	"main": "./dist/lib/main.cjs",
+	"module": "./src/main.js",
+	"types": "./dist/types/main.d.ts",
+	"exports": {
+		"import": "./src/main.js",
+		"require": "./dist/lib/main.cjs"
+	},
 	"files": [
-		"main.js",
+		"src",
 		"dist"
 	],
-	"types": "./dist/main.d.ts",
 	"scripts": {
+		"build:cjs": "babel src/main.js --out-file dist/lib/main.cjs",
+		"dts": "tsc",
+		"build": "npm run build:cjs && npm run dts",
 		"test": "mocha",
-		"pub": "npm test && tsc && npm publish --access public"
+		"pub": "npm test && npm run build && npm publish --access public"
 	},
 	"repository": {
 		"type": "git",
@@ -31,13 +40,19 @@
 	},
 	"homepage": "https://github.com/igorskyflyer/npm-valid-path#readme",
 	"devDependencies": {
-		"@types/node": "^16.3.3",
+		"@babel/cli": "^7.14.8",
+		"@babel/core": "^7.14.8",
+		"@babel/preset-env": "^7.14.9",
+		"@types/chai": "^4.2.21",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "^16.4.10",
 		"chai": "^4.3.4",
-		"mocha": "^9.0.3"
+		"mocha": "^9.0.3",
+		"typescript": "^4.3.5"
 	},
 	"dependencies": {
 		"@igor.dvlpr/chars-in-string": "^1.1.2",
 		"@igor.dvlpr/upath": "^1.2.1",
-		"@igor.dvlpr/windev": "^1.0.0"
+		"@igor.dvlpr/windev": "^1.1.2"
 	}
 }

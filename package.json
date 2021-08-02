@@ -1,6 +1,6 @@
 {
 	"name": "@igor.dvlpr/valid-path",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "🧰 Provides ways of testing whether a given value can be a valid file/directory name. 🏜",
 	"type": "module",
 	"main": "./dist/lib/main.cjs",

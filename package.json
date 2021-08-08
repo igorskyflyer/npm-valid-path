@@ -1,24 +1,30 @@
 {
 	"name": "@igor.dvlpr/valid-path",
-	"version": "1.1.2",
+	"version": "2.0.1",
 	"description": "🧰 Provides ways of testing whether a given value can be a valid file/directory name. 🏜",
 	"type": "module",
-	"main": "./dist/lib/main.cjs",
-	"module": "./src/main.js",
-	"types": "./dist/types/main.d.ts",
-	"exports": {
-		"import": "./src/main.js",
-		"require": "./dist/lib/main.cjs"
+	"engines": {
+		"node": ">=12.17"
 	},
 	"sideEffects": false,
+	"main": "main",
+	"exports": {
+		".": {
+			"require": "./dist/compat/main.cjs",
+			"import": "./dist/module/main.js"
+		}
+	},
+	"module": "./dist/module/main.js",
+	"types": "./dist/main",
 	"files": [
-		"src",
 		"dist"
 	],
 	"scripts": {
-		"build:cjs": "babel src/main.js --out-file dist/lib/main.cjs",
-		"dts": "tsc",
-		"build": "npm run build:cjs && npm run dts",
+		"clean": "rimraf ./dist/*",
+		"build:cjs": "cross-env BABEL_ENV=cjs babel src -d dist/compat --out-file-extension .cjs",
+		"build:esm": "cross-env BABEL_ENV=esm babel src -d dist/module",
+		"build:dts": "tsc",
+		"build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:dts",
 		"test": "mocha",
 		"pub": "npm test && npm run build && npm publish --access public"
 	},
@@ -42,18 +48,22 @@
 	"homepage": "https://github.com/igorskyflyer/npm-valid-path#readme",
 	"devDependencies": {
 		"@babel/cli": "^7.14.8",
-		"@babel/core": "^7.14.8",
-		"@babel/preset-env": "^7.14.9",
+		"@babel/core": "^7.15.0",
+		"@babel/preset-env": "^7.15.0",
 		"@types/chai": "^4.2.21",
 		"@types/mocha": "^9.0.0",
-		"@types/node": "^16.4.10",
+		"@types/node": "^12.17.0",
 		"chai": "^4.3.4",
 		"mocha": "^9.0.3",
+		"@babel/plugin-transform-modules-commonjs": "^7.15.0",
+		"babel-plugin-add-import-extension": "^1.6.0",
+		"cross-env": "^7.0.3",
+		"rimraf": "^3.0.2",
 		"typescript": "^4.3.5"
 	},
 	"dependencies": {
-		"@igor.dvlpr/chars-in-string": "^1.1.2",
-		"@igor.dvlpr/upath": "^1.2.1",
-		"@igor.dvlpr/windev": "^1.1.2"
+		"@igor.dvlpr/chars-in-string": "^2.0.0",
+		"@igor.dvlpr/upath": "^2.0.1",
+		"@igor.dvlpr/windev": "^1.1.3"
 	}
 }

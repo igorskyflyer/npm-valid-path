@@ -1,27 +1,31 @@
 {
 	"name": "@igor.dvlpr/valid-path",
-	"version": "2.1.1",
+	"version": "2.2.0",
 	"description": "🧰 Provides ways of testing whether a given value can be a valid file/directory name. 🏜",
+	"type": "module",
 	"engines": {
 		"node": ">=12.17"
 	},
 	"sideEffects": false,
-	"main": "src/index",
+	"main": "./dist/compat/index.js",
 	"exports": {
 		".": {
-			"require": "./src/index.js",
-			"import": "./src/index.mjs"
+			"require": "./dist/compat/index.js",
+			"import": "./dist/module/index.js"
 		}
 	},
-	"module": "./src/main.mjs",
-	"types": "./dist/main",
+	"module": "./dist/module/index.js",
+	"types": "./dist/types",
 	"files": [
-		"src",
 		"dist"
 	],
 	"scripts": {
+		"cjs": "tsc -m CommonJS -t ES5 --outDir ./dist/compat && hybridize --out ./dist/compat --module cjs --overwrite",
+		"esm": "tsc -m ES6 -t ES6 --outDir ./dist/module",
+		"dts": "tsc --d --emitDeclarationOnly --declarationDir ./dist/types",
+		"build": "npm run cjs && npm run esm && npm run dts",
 		"test": "mocha",
-		"pub": "npm test && tsc && npm publish --access public"
+		"pub": "npm test && npm build && npm publish --access public"
 	},
 	"repository": {
 		"type": "git",
@@ -42,6 +46,7 @@
 	},
 	"homepage": "https://github.com/igorskyflyer/npm-valid-path#readme",
 	"devDependencies": {
+		"@igor.dvlpr/hybridize": "^1.0.0",
 		"@types/chai": "^4.2.21",
 		"@types/mocha": "^9.0.0",
 		"@types/node": "^12.17.0",

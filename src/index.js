@@ -1,7 +1,7 @@
-const { platform } = require('os')
-const { charsInString } = require('@igor.dvlpr/chars-in-string')
-const { slash } = require('@igor.dvlpr/upath')
-const { isWindowsDevice } = require('@igor.dvlpr/windev')
+import { platform } from 'os'
+import { charsInString } from '@igor.dvlpr/chars-in-string'
+import { slash } from '@igor.dvlpr/upath'
+import { isWindowsDevice } from '@igor.dvlpr/windev'
 
 /**
  * @private
@@ -38,7 +38,7 @@ function validPath(path, notAllowedChars, maxPath, isFile = true, separator = sl
  * @param {boolean} [isFile=true]
  * @returns {boolean}
  */
-function isValidPathWin(path, isFile = true) {
+export function isValidPathWin(path, isFile = true) {
   const winMaxPath = 260
   // Windows doesn't allow these characters to appear in the path
   const winNotAllowed = ['/', ':', '*', '?', '"', '<', '>', '|']
@@ -52,7 +52,7 @@ function isValidPathWin(path, isFile = true) {
  * @param {boolean} [isFile=true]
  * @returns {boolean}
  */
-function isValidPathUnix(path, isFile = true) {
+export function isValidPathUnix(path, isFile = true) {
   const unixMaxPath = 255
   // Unix systems don't allow \0 (and a forward slash if it's a file name) as a part of the path
   /**
@@ -69,12 +69,10 @@ function isValidPathUnix(path, isFile = true) {
  * @param {boolean} [isFile=true]
  * @returns {boolean}
  */
-function isValidPath(path, isFile = true) {
+export function isValidPath(path, isFile = true) {
   if (platform() === 'win32') {
     return isValidPathWin(path, isFile)
   } else {
     return isValidPathUnix(path, isFile)
   }
 }
-
-module.exports = { isValidPath, isValidPathUnix, isValidPathWin }

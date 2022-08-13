@@ -25,7 +25,7 @@
 		"dts": "tsc --d --emitDeclarationOnly --declarationDir ./dist/types",
 		"build": "npm run cjs && npm run esm && npm run dts",
 		"test": "mocha",
-		"pub": "npm test && npm build && npm publish --access public"
+		"pub": "npm test && npm run build && npm publish --access public"
 	},
 	"repository": {
 		"type": "git",

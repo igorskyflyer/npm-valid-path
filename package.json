@@ -52,7 +52,7 @@
 		"@types/node": "^12.17.0",
 		"chai": "^4.3.4",
 		"mocha": "^9.0.3",
-		"typescript": "^4.3.5"
+		"typescript": "^4.7.4"
 	},
 	"dependencies": {
 		"@igor.dvlpr/chars-in-string": "^2.1.0",

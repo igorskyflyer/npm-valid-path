@@ -62,14 +62,19 @@ export function isValidPathWin(path, isFile = true) {
  * @returns {boolean}
  */
 export function isValidPathUnix(path, isFile = true) {
-  const unixMaxPath = 255
+  const unixMaxPathBytes = 255
+
+  if (Buffer.byteLength(path, 'utf8') > unixMaxPathBytes) {
+    return false
+  }
+
   // Unix systems don't allow \0 (and a forward slash if it's a file name) as a part of the path
   /**
    * @type {string[]}
    */
   const unixNotAllowed = ['\0', '/']
 
-  return validPath(path, unixNotAllowed, unixMaxPath, isFile, '/')
+  return validPath(path, unixNotAllowed, unixMaxPathBytes, isFile, '/')
 }
 
 /**

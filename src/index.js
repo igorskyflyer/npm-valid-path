@@ -1,7 +1,7 @@
-import { platform } from 'os'
-import { charsInString } from '@igor.dvlpr/chars-in-string'
-import { slash } from '@igor.dvlpr/upath'
-import { isWindowsDevice } from '@igor.dvlpr/windev'
+import { platform } from 'node:os'
+import { charsInString } from '@igorskyflyer/chars-in-string'
+import { slash } from '@igorskyflyer/upath'
+import { isWindowsDevice } from '@igorskyflyer/windev'
 
 /**
  * @private
@@ -12,7 +12,13 @@ import { isWindowsDevice } from '@igor.dvlpr/windev'
  * @param {string} [separator=slash]
  * @returns {boolean}
  */
-function validPath(path, notAllowedChars, maxPath, isFile = true, separator = slash) {
+function validPath(
+  path,
+  notAllowedChars,
+  maxPath,
+  isFile = true,
+  separator = slash
+) {
   if (!path || typeof path !== 'string') {
     return false
   }
@@ -43,7 +49,10 @@ export function isValidPathWin(path, isFile = true) {
   // Windows doesn't allow these characters to appear in the path
   const winNotAllowed = ['/', ':', '*', '?', '"', '<', '>', '|']
 
-  return !isWindowsDevice(path) && validPath(path, winNotAllowed, winMaxPath, isFile, '\\')
+  return (
+    !isWindowsDevice(path) &&
+    validPath(path, winNotAllowed, winMaxPath, isFile, '\\')
+  )
 }
 
 /**

@@ -1,72 +1,72 @@
-import { assert as chai } from 'chai'
+import { assert, describe, it } from 'vitest'
 import { isValidPathUnix, isValidPathWin } from '../src/index.js'
 
 describe('🧪 isValidPath tests 🧪', () => {
   describe('isValidPathUnix()', () => {
     it('should return true', () => {
-      chai.isTrue(isValidPathUnix('hello.js'))
+      assert.isTrue(isValidPathUnix('hello.js'))
     })
 
     it('should return true', () => {
-      chai.isTrue(isValidPathUnix('hello&world.js'))
+      assert.isTrue(isValidPathUnix('hello&world.js'))
     })
 
     it('should return true', () => {
-      chai.isTrue(isValidPathUnix('hello&world.js', true))
+      assert.isTrue(isValidPathUnix('hello&world.js', true))
     })
 
     it('should return false', () => {
-      chai.isFalse(isValidPathUnix('hello/world.js', true))
+      assert.isFalse(isValidPathUnix('hello/world.js', true))
     })
 
     it('should return true', () => {
-      chai.isTrue(isValidPathUnix('hello/world', false))
+      assert.isTrue(isValidPathUnix('hello/world', false))
     })
   }) // isValidPathUnix
 
   describe('isValidPathWin()', () => {
     it('should return true', () => {
-      chai.isTrue(isValidPathWin('hello.js'))
+      assert.isTrue(isValidPathWin('hello.js'))
     })
 
     it('should return true', () => {
-      chai.isTrue(isValidPathWin('hello&world.js'))
+      assert.isTrue(isValidPathWin('hello&world.js'))
     })
 
     it('should return true', () => {
-      chai.isTrue(isValidPathWin('hello&world.js', true))
+      assert.isTrue(isValidPathWin('hello&world.js', true))
     })
 
     it('should return false', () => {
-      chai.isFalse(isValidPathWin('hello/world.js', true))
+      assert.isFalse(isValidPathWin('hello/world.js', true))
     })
 
     it('should return false', () => {
-      chai.isFalse(isValidPathWin('hello/world', false))
+      assert.isFalse(isValidPathWin('hello/world', false))
     })
 
     it('should return false', () => {
-      chai.isFalse(isValidPathWin('COM7'))
+      assert.isFalse(isValidPathWin('COM7'))
     })
 
     it('should return true', () => {
-      chai.isTrue(isValidPathWin('CON7'))
+      assert.isTrue(isValidPathWin('CON7'))
     })
 
     it('should return false', () => {
-      chai.isFalse(isValidPathWin('lpt1'))
+      assert.isFalse(isValidPathWin('lpt1'))
     })
 
     it('should return true', () => {
-      chai.isTrue(isValidPathWin('connection'))
+      assert.isTrue(isValidPathWin('connection'))
     })
 
     it('should return false', () => {
-      chai.isFalse(isValidPathWin('lpt1.txt'))
+      assert.isFalse(isValidPathWin('lpt1.txt'))
     })
 
     it('should return false', () => {
-      chai.isFalse(isValidPathWin('hello*world'))
+      assert.isFalse(isValidPathWin('hello*world'))
     })
   }) // isValidPathWin
 })

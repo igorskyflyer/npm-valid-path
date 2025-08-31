@@ -47,7 +47,7 @@ function validPath(
 export function isValidPathWin(path, isFile = true) {
   const winMaxPath = 260
   // Windows doesn't allow these characters to appear in the path
-  const winNotAllowed = ['/', ':', '*', '?', '"', '<', '>', '|']
+  const winNotAllowed = ['/', ':', '*', '?', '"', '<', '>', '|', '\\']
 
   return (
     !isWindowsDevice(path) &&
@@ -67,7 +67,7 @@ export function isValidPathUnix(path, isFile = true) {
   /**
    * @type {string[]}
    */
-  const unixNotAllowed = []
+  const unixNotAllowed = ['\0', '/']
 
   return validPath(path, unixNotAllowed, unixMaxPath, isFile, '/')
 }

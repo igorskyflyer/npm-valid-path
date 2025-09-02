@@ -22,7 +22,7 @@
 <br>
 
 - **✅ fix**: handle mixed separators correctly by normalizing before validation
-- **✅ fix**: distinguish byte length (Unix) vs character length (Windows) in limits
+- **✅ fix**: distinguish byte length (Unix) vs. character length (Windows) in limits
 - **✅ fix**: reject empty or whitespace‑only paths early
 
 <br>

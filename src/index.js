@@ -50,8 +50,7 @@ export function isValidPathWin(path, isFile = true) {
   const winNotAllowed = ['/', ':', '*', '?', '"', '<', '>', '|', '\\']
 
   return (
-    !isWindowsDevice(path) &&
-    validPath(path, winNotAllowed, winMaxPath, isFile, '\\')
+    !isWindowsDevice(path) && validPath(path, winNotAllowed, winMaxPath, isFile)
   )
 }
 

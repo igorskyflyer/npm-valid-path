@@ -8,15 +8,15 @@ importers:
 
   .:
     dependencies:
-      '@igor.dvlpr/chars-in-string':
-        specifier: ^2.1.2
-        version: 2.1.2
-      '@igor.dvlpr/upath':
-        specifier: ^3.0.1
-        version: 3.0.1
-      '@igor.dvlpr/windev':
-        specifier: ^1.2.2
-        version: 1.2.2
+      '@igorskyflyer/chars-in-string':
+        specifier: ^3.0.0
+        version: 3.0.0
+      '@igorskyflyer/upath':
+        specifier: ^3.1.0
+        version: 3.1.0
+      '@igorskyflyer/windev':
+        specifier: ^1.3.0
+        version: 1.3.0
     devDependencies:
       '@biomejs/biome':
         specifier: ^2.2.2
@@ -245,27 +245,27 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@igor.dvlpr/chars-in-string@2.1.2':
-    resolution: {integrity: sha512-YmCLqNekqlwZtlcyW68pF4PQ3MIGX5t6wKA/FbF3Q/NT/PEXdF9QsbHxkunMmutN6h+L1pNlfbiwbj1N8mK1xg==}
-    engines: {node: '>=12.17'}
-
-  '@igor.dvlpr/unc-path@3.0.0':
-    resolution: {integrity: sha512-ln9I4EwxF1AAB2v3tMyofF/p77wF0frgq40TAY38jq8RVfCIN8Utznu+7EALF23DsmrXdXOQwWkaghDk2H67YQ==}
-    engines: {node: '>=20.0'}
-    deprecated: ⚠️ This package has been deprecated due to technical issues. Please install @igorskyflyer/unc-path instead.
-
-  '@igor.dvlpr/upath@3.0.1':
-    resolution: {integrity: sha512-yiFxGbYzl3obgv+2GlgX1WVbFZqflbmk6r7V/vr7tVsIPwpvh4PTT4lgoO4HoyeqyJUPoNDV8DDZ5pIBdmGLAQ==}
-    engines: {node: '>=20.0'}
-
-  '@igor.dvlpr/windev@1.2.2':
-    resolution: {integrity: sha512-ATaFFHaYrUdx3NmSTFydaat+dQUtXn6dw92jfWGXj1sU3Wgh6glohBMpiUOqUV45nbhxXOFxokDnZvdjf4+lgw==}
-
   '@igorskyflyer/biome-config@2.1.0':
     resolution: {integrity: sha512-sZ7K8tOMWNRAmirw94SUlsFdKwPS9DLZk63Y2Eb3gD3QMOE1KVb7ANd7MZaF/A20PwmXz9lMI5BYlqcpV1x+fA==}
     engines: {node: '>=22.0'}
     peerDependencies:
       '@biomejs/biome': ^2.2.2
+
+  '@igorskyflyer/chars-in-string@3.0.0':
+    resolution: {integrity: sha512-rzBYYAOlJoyd/JRZVVMDDWTSY37YqRFgVlEB5LqnZbPlW6IWNceSH8GOqRBqNIH3iTKBDA6TgGT/BcVz3aMfYA==}
+    engines: {node: '>=22.0'}
+
+  '@igorskyflyer/unc-path@3.1.0':
+    resolution: {integrity: sha512-I4vUoanDHxbMnCmHaJfG2DQrXgs1HmY9AxlgrlRVNSXoDgST59tF9Vk6wTBz5n3FSLPyFYKgBlfd6doRjjk5Pw==}
+    engines: {node: '>=22.0'}
+
+  '@igorskyflyer/upath@3.1.0':
+    resolution: {integrity: sha512-Rw3WUCfIbMCGRVP/aPpu9LuajeC7F8zSX74pa39B+MlmQ34Yz8/s+l1ftnkkX39zeGnf42Bo3qkwJoQJHE1w4Q==}
+    engines: {node: '>=22.0'}
+
+  '@igorskyflyer/windev@1.3.0':
+    resolution: {integrity: sha512-ELlFjkW9+cueBrGi8hqO8aVtjxLqka3Ewwvf99ztl+yjQ26KiJXV13j9bPdfBTBJO2ky0Ww9uUg2sgBXFzrReg==}
+    engines: {node: '>=22.0'}
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
@@ -748,19 +748,19 @@ snapshots:
   '@esbuild/win32-x64@0.25.9':
     optional: true
 
-  '@igor.dvlpr/chars-in-string@2.1.2': {}
-
-  '@igor.dvlpr/unc-path@3.0.0': {}
-
-  '@igor.dvlpr/upath@3.0.1':
-    dependencies:
-      '@igor.dvlpr/unc-path': 3.0.0
-
-  '@igor.dvlpr/windev@1.2.2': {}
-
   '@igorskyflyer/biome-config@2.1.0(@biomejs/biome@2.2.2)':
     dependencies:
       '@biomejs/biome': 2.2.2
+
+  '@igorskyflyer/chars-in-string@3.0.0': {}
+
+  '@igorskyflyer/unc-path@3.1.0': {}
+
+  '@igorskyflyer/upath@3.1.0':
+    dependencies:
+      '@igorskyflyer/unc-path': 3.1.0
+
+  '@igorskyflyer/windev@1.3.0': {}
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 

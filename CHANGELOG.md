@@ -4,10 +4,19 @@
 
 <br>
 
-## v3.0.0 (*31-Aug-2025*)
+## v3.0.0 (*03-Sep-2025*)
 
-- **✨ feat**: add backslash '\\' to non-allowed characters for Windows
-- **✨ feat**: use max bytes-length for Unix systems
+- **❌ BREAKING**: stricter validation rejects paths with reserved names in subfolders, over‑length segments, bad trailing chars, or invalid colons (might not apply to you)
+
+- **✨ feat**: add separator normalization for cross‑platform consistency
+- **✨ feat**: enforce per‑segment and total path length limits for Windows and Unix
+- **✨ feat**: add Windows‑specific rules for trailing space/dot, drive‑letter colon, and reserved device names
+- **✨ feat**: add Unix‑specific `NUL` byte check per segment
+
+- **✅ fix**: handle mixed separators correctly by normalizing before validation
+- **✅ fix**: distinguish byte length (Unix) vs character length (Windows) in limits
+- **✅ fix**: reject empty or whitespace‑only paths early
+
 - **💻 dev**: upgrade Node to >= v22
 - **💻 dev**: upgrade dependencies
 - **💻 dev**: add CHANGELOG

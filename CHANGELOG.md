@@ -6,7 +6,7 @@
 
 ## v3.0.0 (*03-Sep-2025*)
 
-- **❌ BREAKING**: **stricter** validation (*might not apply to you*):
+- **❌ BREAKING**: **stricter** validation (*might not apply to your case*):
   - rejects paths with reserved names in subfolders
   - over‑length segments
   - bad trailing chars

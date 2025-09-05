@@ -1,62 +1,73 @@
 {
-	"name": "@igor.dvlpr/valid-path",
-	"version": "2.2.1",
-	"description": "🧰 Provides ways of testing whether a given value can be a valid file/directory name. 🏜",
-	"type": "module",
-	"engines": {
-		"node": ">=12.17"
-	},
-	"sideEffects": false,
-	"main": "./dist/compat/index.js",
-	"exports": {
-		".": {
-			"require": "./dist/compat/index.js",
-			"import": "./dist/module/index.js"
-		}
-	},
-	"module": "./dist/module/index.js",
-	"types": "./dist/types",
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"cjs": "tsc -m CommonJS -t ES5 --outDir ./dist/compat && hybridize --out ./dist/compat --module cjs --overwrite",
-		"esm": "tsc -m ES6 -t ES6 --outDir ./dist/module",
-		"dts": "tsc --d --emitDeclarationOnly --declarationDir ./dist/types",
-		"build": "npm run cjs && npm run esm && npm run dts",
-		"test": "mocha",
-		"pub": "npm test && npm run build && npm publish --access public"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/igorskyflyer/npm-valid-path.git"
-	},
-	"keywords": [
-		"path",
-		"valid",
-		"filesystem",
-		"identifier",
-		"os",
-		"igor.dvlpr"
-	],
-	"author": "Igor Dimitrijević",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/igorskyflyer/npm-valid-path/issues"
-	},
-	"homepage": "https://github.com/igorskyflyer/npm-valid-path#readme",
-	"devDependencies": {
-		"@igor.dvlpr/hybridize": "^1.0.0",
-		"@types/chai": "^4.3.3",
-		"@types/mocha": "^9.1.1",
-		"@types/node": "^12.17.0",
-		"chai": "^4.3.6",
-		"mocha": "^10.0.0",
-		"typescript": "^4.7.4"
-	},
-	"dependencies": {
-		"@igor.dvlpr/chars-in-string": "^2.1.0",
-		"@igor.dvlpr/upath": "^2.1.1",
-		"@igor.dvlpr/windev": "^1.2.1"
-	}
+    "name": "@igorskyflyer/valid-path",
+    "version": "3.0.0",
+    "description": "🧰 Determines whether a given value can be a valid file/directory name. 🏜",
+    "sideEffects": false,
+    "engines": {
+        "node": ">=22.0"
+    },
+    "type": "module",
+    "types": "./dist/index.d.ts",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "test": "vitest --run",
+        "pub": "pnpm test && git push origin main --tags"
+    },
+    "keywords": [
+        "path",
+        "validation",
+        "file",
+        "directory",
+        "windows",
+        "unix",
+        "max-path-length",
+        "invalid-characters",
+        "cross-platform",
+        "isvalidpath",
+        "isvalidpathwin",
+        "isvalidpathunix",
+        "validpath",
+        "os",
+        "charsinstring",
+        "slash",
+        "iswindowsdevice",
+        "javascript",
+        "typescript",
+        "nodejs",
+        "filesystem",
+        "igor dimitrijević",
+        "igorskyflyer"
+    ],
+    "license": "MIT",
+    "author": "Igor Dimitrijević <support@igorskyflyer.me> (https://github.com/igorskyflyer)",
+    "funding": "https://ko-fi.com/igorskyflyer",
+    "homepage": "https://github.com/igorskyflyer/npm-valid-path",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/igorskyflyer/npm-valid-path.git"
+    },
+    "bugs": {
+        "url": "https://github.com/igorskyflyer/npm-valid-path/issues"
+    },
+    "dependencies": {
+        "@igorskyflyer/chars-in-string": "^3.0.0",
+        "@igorskyflyer/upath": "^3.1.0",
+        "@igorskyflyer/windev": "^1.3.0"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.2.2",
+        "@igorskyflyer/biome-config": "^2.1.0",
+        "@types/node": "^22.18.0",
+        "typescript": "^5.9.2",
+        "vitest": "^3.2.4"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "packageManager": "pnpm@10.15.0"
 }

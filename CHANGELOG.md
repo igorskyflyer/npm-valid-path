@@ -4,7 +4,7 @@
 
 <br>
 
-## v3.0.0 (*03-Sep-2025*)
+## v3.0.0 (*05-Sep-2025*)
 
 - **❌ BREAKING**: **stricter** validation (*might not apply to your case*):
   - rejects paths with reserved names in subfolders
@@ -14,7 +14,7 @@
 
 <br>
 
-- **✨ feat**: add separator normalization for cross‑platform consistency
+- **✨ feat**: normalize and accept mixed path separators for cross‑platform consistency
 - **✨ feat**: enforce per‑segment and total path length limits for Windows and Unix
 - **✨ feat**: add Windows‑specific rules for trailing space/dot, drive‑letter colon, and reserved device names
 - **✨ feat**: add Unix‑specific `NUL` byte check per segment

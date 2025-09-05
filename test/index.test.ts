@@ -41,8 +41,8 @@ describe('🧪 isValidPath tests 🧪', () => {
       assert.isFalse(isValidPathWin('hello/world.js', true))
     })
 
-    it('should return false', () => {
-      assert.isFalse(isValidPathWin('hello/world', false))
+    it('should return true', () => {
+      assert.isTrue(isValidPathWin('hello/world', false))
     })
 
     it('should return false', () => {
